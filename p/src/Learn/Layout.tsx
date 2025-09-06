@@ -1,11 +1,13 @@
-import Aside from "../components/Aside";
-import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Aside from "../components/Aside";
 
-const RoutElement = () => {
+const Layout = () => {
   return (
     <div>
       <Navbar />
+      <Aside />
+
       <div className="p-2">
         <Outlet />
       </div>
@@ -13,4 +15,4 @@ const RoutElement = () => {
   );
 };
 
-export default RoutElement;
+export default Layout;
