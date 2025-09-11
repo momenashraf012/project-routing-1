@@ -14,6 +14,8 @@ import Layout from "../Learn/Layout";
 import LoginPage from "../pages/Login";
 import ContributePage from "../pages/ContributPage";
 import ProductedRoute from "../Auth/ProductedRoute";
+import ErrorHandler from "../components/error/ErrorHandler";
+import PageNotFound from "../pages/PageNotFound";
 
 const isLogin = true;
 const useData: { email: string } | null = isLogin
@@ -29,6 +31,7 @@ const router = createBrowserRouter(
             <RoutElement />
           </>
         }
+        errorElement={<ErrorHandler />}
       >
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
@@ -65,6 +68,7 @@ const router = createBrowserRouter(
         <Route path="Thinking" element={<h1>Thinking</h1>} />
         <Route path="Installation" element={<h1>Installation</h1>} />
       </Route>
+      <Route path="*" element={<PageNotFound />} />
     </>
   )
 );
