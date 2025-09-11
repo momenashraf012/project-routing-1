@@ -3,7 +3,8 @@ import Button from "../Ui/Button";
 import Textarea from "../Ui/Textarea";
 
 const ContributePage = () => {
-  const { state } = useLocation();
+  const  {state}  = useLocation();
+
 
   return (
     <>

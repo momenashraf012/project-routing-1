@@ -14,9 +14,11 @@ import Layout from "../Learn/Layout";
 import LoginPage from "../pages/Login";
 import ContributePage from "../pages/ContributPage";
 import ProductedRoute from "../Auth/ProductedRoute";
-import ProtectedRoute from "../Auth/ProductedRoute";
 
 const isLogin = true;
+const useData: { email: string } | null = isLogin
+  ? { email: "momen ashraf" }
+  : null;
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -34,7 +36,11 @@ const router = createBrowserRouter(
         <Route
           path="Contributpage"
           element={
-            <ProductedRoute isAllowed={isLogin} redirectPath="/Login">
+            <ProductedRoute
+              isAllowed={isLogin}
+              redirectPath="/Login"
+              data={useData}
+            >
               <ContributePage />
             </ProductedRoute>
           }
@@ -42,7 +48,11 @@ const router = createBrowserRouter(
         <Route
           path="Login"
           element={
-            <ProductedRoute isAllowed={!isLogin} redirectPath="/Contributpage">
+            <ProductedRoute
+              isAllowed={!isLogin}
+              redirectPath="/Contributpage"
+              data={useData}
+            >
               <LoginPage />
             </ProductedRoute>
           }
